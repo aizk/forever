@@ -1,0 +1,38 @@
+{{ define "content" }}
+ <!-- printf "%#v" .}} -->
+<!-- <div>.CurrentSection: printf "%v" .CurrentSection.Title }}</div> -->
+<!-- <div>.CurrentSection:  printf "%v" .CurrentSection.IsHome }}</div> -->
+<!-- <div>.FirstSection:  .FirstSection }}</div> -->
+<!-- <div>.Site.GetPage "section" "books":  .Site.GetPage "section" "books" }}</div> -->
+
+<div class="books">
+    <!-- <div class="header"> -->
+        <!-- 知识体系 -->
+    <!-- </div> -->
+<!-- 迭代子页面 -->
+<!-- <div>Pages</div> -->
+{{ if eq .CurrentSection.Title "books" }}
+    <div class="sections">
+        {{ range .Sections }}
+            <!-- 下属所有 section，也就是每一本 Book -->
+            <div><a href="{{ .Permalink }}">{{.Title | humanize }}</a></div>
+        {{ end }}
+    </div>
+{{ else }}
+    <div class="sub-sections">
+        {{ range .Sections.ByWeight }}
+            <!-- 所有 section -->
+            <div class="section"><a href="{{ .Permalink }}">{{.Title }}</a></div>
+            {{ range .Pages }}
+                <!-- section 的页面 -->
+                <div class="page"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+            {{ end }}
+        {{ end }}
+    </div>
+    <hr>
+    <div class="content">
+        {{ .Content }}
+    </div>
+{{ end }}
+</div>
+{{end }}

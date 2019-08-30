@@ -1,0 +1,15 @@
+{{ define "content" }}
+
+{{ $terms := .Data.Terms }}
+{{ $type := .Type }}
+
+<div style="margin: 0 auto; max-width: 960px; text-align: center">
+    {{ range .Site.Taxonomies.series.ByCount }}
+        <div>
+            <a href="/series/{{ .Name | urlize }}">{{ .Name | humanize }} <small>({{ .Count }})</small></a>
+        </div>
+    {{ end }}
+</div>
+
+
+{{ end }}
