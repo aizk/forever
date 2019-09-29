@@ -3,6 +3,182 @@
 // ==============================
 // You can override the variables in _variables.scss to customize the style
 
+html {
+    // font-family: "Josefin Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
+    // font-family: "Noto Serif", Georgia, Times, serif, "Microsoft Yahei";
+}
+
+body {
+    background-color: #f8fafc;
+    font-family: "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", sans-serif, "Merriweather", serif !important;
+}
+
+.logo {
+    font-size: 1.44rem;
+    font-weight: bolder;
+}
+
+.article-content {
+    margin-top: 2rem;
+    background-color: #fff;
+}
+
+// markdown 样式
+.post-content {
+    padding-top: 2rem;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        padding-top: .8em;
+        padding-bottom: .3em;
+    }
+    h2::before {
+        content: "#";
+        margin-right: 5px;
+        color: $light-post-link-color;
+        .dark-theme & {
+            color: $dark-post-link-color;
+        }
+    }
+
+    h3::before {
+        content: "|";
+        margin-right: 5px;
+        color: $light-post-link-color;
+
+        .dark-theme & {
+            color: $dark-post-link-color;
+        }
+    }
+
+    a {
+        color: $light-post-link-color;
+        .dark-theme & {
+            color: $dark-post-link-color;
+        }
+    }
+
+    a:hover {
+        color: $light-post-link-hover-color;
+        .dark-theme &:hover {
+            color: $dark-post-link-hover-color;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+
+    code,
+    pre {
+        border-radius: .5rem;
+        padding: 7px;
+        font-size: 13px;
+        font-family: Consolas, Monaco, Menlo, Consolas, monospace;
+        word-break: break-all;
+        word-wrap: break-word;
+    }
+
+    pre code {
+        display: block; // 重要 bug 修复，code 第一行缩进问题，是因为父元素为 inline
+    }
+
+    code:not([class]) {
+        padding: 5px 5px;
+        background: #fff;
+        border: 1px solid #ddd;
+        // box-shadow: 1px 1px 0 #fff, 2px 2px 0 #ddd;
+        margin-left: 3px;
+        margin-right: 3px;
+
+        .dark-theme &:not([class]) {
+            background: transparent;
+            box-shadow: 1px 1px 0 $dark-font-secondary-color, 2px 2px 0 $dark-font-secondary-color;
+        }
+    }
+
+    ul {
+        padding-left: 2em;
+        li {
+            // font-size: 1.2em;
+            margin: 0.4em 0;
+            ul {
+                li {
+                    // font-size: .9em;
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+    ol {
+        padding-left: 2em;
+        li {
+            font-size: 1.15em;
+            margin: 0.4em 0;
+            ul {
+                li {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+    table {
+        max-width: 100%;
+        margin: 10px 0;
+        border-spacing: 0;
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125);
+
+        th,
+        td {
+            padding: 5px 15px;
+            border: 1px double #ebe9f5;
+        }
+    }
+
+    figure {
+        text-align: center;
+        img:hover{
+            cursor: zoom-in;
+        }
+    }
+
+    .image-caption:not(:empty) {
+        min-width: 20%;
+        max-width: 80%;
+        display: inline-block;
+        padding: 10px;
+        margin: 0 auto;
+        border-bottom: 1px solid #d9d9d9;
+        font-size: 14px;
+        color: #969696;
+        line-height: 1.7;
+    }
+
+    img {
+        display: block;
+        max-width: 80%;
+        height: auto;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+
+
+    img[data-action="zoom"] {
+        cursor: zoom-in;
+    }
+
+    .featured_image {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+    }
+}
+
 .post-comment {
     width: 100%;
     max-width: 780px;
@@ -101,15 +277,41 @@
 }
 
 #TableOfContents {
-    height: 600px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    padding-top: 1.5rem;
+    word-wrap: break-word;
     a {
-        color: #3a81a9;
+        font-size: .9rem;
+        color: #738a94;
         -webkit-font-smoothing: antialiased;
         font-kerning: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    a:hover {
+        color: #c05b4d;
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    ul {
+        li {
+           padding-left: 1rem;
+        }
     }
 }
+
+//#TableOfContents {
+//    height: 600px;
+//    overflow-y: auto;
+//    overflow-x: hidden;
+    //a {
+    //    color: #3a81a9;
+    //    -webkit-font-smoothing: antialiased;
+    //    font-kerning: normal;
+    //}
+//}
 
 #TableOfContents::-webkit-scrollbar {
     display: none;

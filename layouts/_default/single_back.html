@@ -1,46 +1,47 @@
 {{ define "content" -}}
 {{ $cdn_url := .Scratch.Get "cdn_url" }}
-<article class="container" itemscope itemtype="http://schema.org/Article">
-    <div class="columns">
-      <div class="column is-four-fifths content article-content">
-        <h2 class="has-text-grey-dark	is-size-4">{{ .Title }}</h2>
-        <div class="p-meta is-size-7">
-          Written by <a itemprop="name" href="{{.Site.BaseURL }}" rel="author">{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}</a> with ♥
-          <span class="post-time">
-                on <time datetime={{.Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }} itemprop="datePublished">{{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}</time>
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">{{ .Title }}</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="{{.Site.BaseURL }}" rel="author">{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}</a> with ♥
+                <span class="post-time">
+                on <time datetime={{.Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }} itemprop="datePublished">{{ .Date.Format (.Site.Params.dateFormatToUse | default "January 2, 2006") }}</time>
                 </span>
-          in
-          {{ with .Params.categories -}}
-          <i class="iconfont icon-folder"></i>
-          <span class="post-category">
+                in
+                {{ with .Params.categories -}}
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
                         {{ range . }}
                         {{- $name := . -}}
                         {{- with $.Site.GetPage "taxonomy" (printf "categories/%s" $name) | default ($.Site.GetPage "taxonomy" (printf "categories/%s" ($name | urlize))) -}}
-                          <a href="{{ .Permalink }}"> {{ $name }} </a> |
+                          <a href="{{ .Permalink }}"> {{ $name }} </a>
                         {{ end -}}
                         {{ end }}
                 </span>
-          {{- end }}
-          <!-- 显式几条评论 -->
-<!--          |-->
-<!--          <a href="#gitalk-container" itemprop="discussionUrl">-->
-<!--            <span class="gitalk-comment-count" itemprop="commentCount"></span>-->
-<!--          </a>-->
-<!--          {{ .Site.Params.gitalk.countSign }}-->
+                {{- end }}
+                <!-- 显式几条评论 -->
+                |
+                <a href="#gitalk-container" itemprop="discussionUrl">
+                    <span class="gitalk-comment-count" itemprop="commentCount"></span>
+                </a>
+                {{ .Site.Params.gitalk.countSign }}
         </div>
-        <hr>
-        <div class="p-content markdown">
-          <!--featured_image-->
-          {{ $images := findRE "<img src=\"[^\"|\\\"]*\"" .Content -}}
-                                     {{ if ge (len $images) 1}}
-                                     {{ $.Scratch.Set "postHasImages" true }}
-          {{ end }}
+    </header>
+    {{ partial "toc.html" . }}
+    <div class="post-content">
+        <!--featured_image-->
 
-          {{ with .Params.featured_image }}
+        {{ $images := findRE "<img src=\"[^\"|\\\"]*\"" .Content -}}
+        {{ if ge (len $images) 1}}
+            {{ $.Scratch.Set "postHasImages" true }}
+        {{ end }}
+
+        {{ with .Params.featured_image }}
           {{- $img := . -}}
           <img src="{{ printf "%s%s" $cdn_url $img }}" class="featured_image">
-          {{ end }}
-          <!-- end featured_image-->
+        {{ end }}
+        <!-- end featured_image-->
 
           {{ $reAltIn := "<img src=\"([^\"]+)\" alt=\"([^\"]+)?\" />" }}
           {{ $reAltOut :=  ( printf "<figure><img src=\"/images/ring.svg\" data-sizes=\"auto\" data-src=\"%s$1\" alt=\"$2\" class=\"lazyload\"><figcaption class=\"image-caption\">$2</figcaption></figure>" $cdn_url ) }}
@@ -51,15 +52,9 @@
           {{ $finalContent := $altContent | replaceRE $reAltTitleIn $reAltTitleOut | safeHTML }}
 
           {{ $finalContent }}
-        </div>
-      </div>
-
-      <div class="column p-toc">
-        {{ partial "toc.html" . }}
-      </div>
     </div>
 
-    <div class="post-copyright box">
+    <div class="post-copyright">
             {{ with .Site.Params.author }}
             <p class="copyright-item">
                 <span>Author:</span>
@@ -85,7 +80,8 @@
             {{ end }}
     </div>
 
-    <div class="post-tags box">
+
+    <div class="post-tags">
         {{ with .Params.tags }}
             <section>
             <i class="iconfont icon-tag"></i>Tag(s):
@@ -101,7 +97,7 @@
         </section>
     </div>
 
-    <div class="post-nav box">
+    <div class="post-nav">
         {{ if .PrevInSection }}
         <a href="{{.PrevInSection.Permalink}}" class="prev" rel="prev" title="{{ .PrevInSection.Title}}"><i class="iconfont icon-left"></i>&nbsp;{{ .PrevInSection.Title}}</a>
         {{ end }}

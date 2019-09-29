@@ -1,9 +1,9 @@
 @import "_variables/default.scss";
 
-@import "_common/_core/normalize.scss";
-@import "_common/_core/base.scss";
-@import "_common/_core/layout.scss";
-
+//@import "_common/_core/normalize.scss";
+//@import "_common/_core/base.scss"; 都是各种覆盖配置，不要引入
+//@import "_common/_core/layout.scss";
+@import "_common/_core/markdown.scss";
 
 @import "_common/_page/home.scss";
 @import "_common/_page/terms.scss";
@@ -16,9 +16,8 @@
 @import "_common/_section/pagination.scss";
 @import "_common/_section/books.scss";
 
+//@import "_common/_prettyprint/default.scss";
 
-@import "_common/_prettyprint/default.scss";
 
-
-@import "_common/_core/media.scss";
-@import "custom"
+//@import "_common/_core/media.scss";
+@import "_custom.scss";

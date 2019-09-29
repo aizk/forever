@@ -1,28 +1,4 @@
 .books {
-    // max-width: 80%;
-    width: 80%;
-    margin: 0 auto;
-
-    .sections {
-        margin: 0 auto;
-        margin-top: 2rem;
-        font-size: 1.4rem;
-        text-align: center;
-    }
-    .sub-sections {
-        .section {
-            letter-spacing: .1rem;
-            a {
-                color: blue;
-            }
-        }
-        
-        .page {
-            padding-left: 2rem;
-        }
-    }
-    .header {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
+    margin-top: 1rem;
+    padding-top: 1rem;
 }

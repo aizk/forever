@@ -5,18 +5,48 @@
 <!-- <div>.FirstSection:  .FirstSection }}</div> -->
 <!-- <div>.Site.GetPage "section" "books":  .Site.GetPage "section" "books" }}</div> -->
 
-<div class="books">
-    <!-- <div class="header"> -->
-        <!-- 知识体系 -->
-    <!-- </div> -->
-<!-- 迭代子页面 -->
-<!-- <div>Pages</div> -->
+
+
 {{ if eq .CurrentSection.Title "books" }}
-    <div class="sections">
+    <!-- <div class="container"> -->
+            <section class="hero is-primary">
+                    <div class="hero-body">
+                      <div class="container">
+                        <h1 class="title">
+                          知识体系
+                        </h1>
+                        <h2 class="subtitle">
+                          梳理成系统的知识
+                        </h2>
+                      </div>
+                    </div>
+                </section>
+
+        <div class="container books">
+        <div class="columns is-multiline">
         {{ range .Sections }}
             <!-- 下属所有 section，也就是每一本 Book -->
-            <div><a href="{{ .Permalink }}">{{.Title | humanize }}</a></div>
+            
+            <!-- <div><a href="{{ .Permalink }}">{{.Title | humanize }}</a></div> -->
+           
+        <div class="column is-one-third is-centered">
+            <div class="card">
+                    <div class="card-content">
+                        <p class="title">
+                            {{.Title | humanize }}
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">
+                            <span>
+                                <a href="{{ .Permalink }}">阅读</a>
+                            </span>
+                        </p>
+                    </footer>
+            </div>
+        </div>
         {{ end }}
+        </div>
     </div>
 {{ else }}
     <div class="sub-sections">

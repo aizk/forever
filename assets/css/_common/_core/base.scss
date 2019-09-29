@@ -9,11 +9,11 @@
     /* IE9 Compat Modes */
     src: local("Josefin Sans"), local("JosefinSans-Normal"), url("//lib.baomitu.com/fonts/josefin-sans/josefin-sans-regular.eot?#iefix") format("embedded-opentype"), url("//lib.baomitu.com/fonts/josefin-sans/josefin-sans-regular.woff2") format("woff2"), url("//lib.baomitu.com/fonts/josefin-sans/josefin-sans-regular.woff") format("woff"), url("//lib.baomitu.com/fonts/josefin-sans/josefin-sans-regular.ttf") format("truetype"), url("//lib.baomitu.com/fonts/josefin-sans/josefin-sans-regular.svg#JosefinSans") format("svg");
     /* Legacy iOS */
-  }
-  
-  
+}
+
+
   /* pt-sans-regular */
-  @font-face {
+@font-face {
     font-family: "PT Sans";
     font-style: normal;
     font-weight: normal;
@@ -21,10 +21,10 @@
     /* IE9 Compat Modes */
     src: local("PT Sans"), local("PTSans-Normal"), url("//lib.baomitu.com/fonts/pt-sans/pt-sans-regular.eot?#iefix") format("embedded-opentype"), url("//lib.baomitu.com/fonts/pt-sans/pt-sans-regular.woff2") format("woff2"), url("//lib.baomitu.com/fonts/pt-sans/pt-sans-regular.woff") format("woff"), url("//lib.baomitu.com/fonts/pt-sans/pt-sans-regular.ttf") format("truetype"), url("//lib.baomitu.com/fonts/pt-sans/pt-sans-regular.svg#PTSans") format("svg");
     /* Legacy iOS */
-  }
-  
- 
-  
+}
+
+
+
   html {
     &::-webkit-scrollbar {
       width: 8px;
@@ -39,17 +39,17 @@
       }
     }
   }
-  
+
   ::selection {
     background: rgba(0, 149, 255, 0.1);
   }
-  
+
   html {
     // font-family: "Josefin Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
     // font-family: "Noto Serif", Georgia, Times, serif, "Microsoft Yahei";
     font-family: "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", sans-serif, "Merriweather", serif;
   }
-  
+
   body {
     font-size: 14px;
     // font-weight: 400;
@@ -76,13 +76,8 @@
       filter: grayscale(100%);
       filter: gray;
     }
-
-     &.dark-theme {
-        background-color: $dark-background-color;
-        color: $dark-font-color;
-     }
   }
-  
+
   a {
     color: $light-global-link-color;
     text-decoration: none;
@@ -105,7 +100,7 @@
       }
     }
   }
-  
+
   blockquote {
     display: block;
     margin: 0;
@@ -145,7 +140,7 @@
   //     font: 6em/1.08em 'PT Sans', sans-serif;
   //     color: $light-post-link-color;
   //     text-align: center;
-      
+
   //      .dark-theme &{
   //        color: $dark-post-link-color;
   //      }
