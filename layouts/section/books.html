@@ -5,11 +5,9 @@
 <!-- <div>.FirstSection:  .FirstSection }}</div> -->
 <!-- <div>.Site.GetPage "section" "books":  .Site.GetPage "section" "books" }}</div> -->
 
-
-
 {{ if eq .CurrentSection.Title "books" }}
     <!-- <div class="container"> -->
-            <section class="hero is-primary">
+        <section class="hero is-primary">
                     <div class="hero-body">
                       <div class="container">
                         <h1 class="title">
@@ -26,43 +24,32 @@
         <div class="columns is-multiline">
         {{ range .Sections }}
             <!-- 下属所有 section，也就是每一本 Book -->
-            
+
             <!-- <div><a href="{{ .Permalink }}">{{.Title | humanize }}</a></div> -->
-           
+
         <div class="column is-one-third is-centered">
-            <div class="card">
-                    <div class="card-content">
-                        <p class="title">
-                            {{.Title | humanize }}
-                        </p>
-                    </div>
-                    <footer class="card-footer">
-                        <p class="card-footer-item">
-                            <span>
-                                <a href="{{ .Permalink }}">阅读</a>
-                            </span>
-                        </p>
-                    </footer>
+            <div class="box" style="text-align: center">
+              <a style="color: #139ce7" href="{{ .Permalink }}">{{.Title | humanize }}</a>
             </div>
         </div>
         {{ end }}
         </div>
     </div>
 {{ else }}
-    <div class="sub-sections">
-        {{ range .Sections.ByWeight }}
-            <!-- 所有 section -->
-            <div class="section"><a href="{{ .Permalink }}">{{.Title }}</a></div>
-            {{ range .Pages }}
-                <!-- section 的页面 -->
-                <div class="page"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-            {{ end }}
-        {{ end }}
+  <div class="container">
+  <div class="columns book-desc">
+    <div class="column is-one-fifth">
+      <div class="box book-toc">
+        {{ partial "deep_toc" (dict "root" . "level" 1) }}
+      </div>
     </div>
-    <hr>
-    <div class="content">
+    <div class="column">
+      <div class="content box">
         {{ .Content }}
+      </div>
     </div>
+  </div>
+  </div>
+
 {{ end }}
-</div>
 {{end }}

@@ -10,12 +10,13 @@ html {
 
 body {
     background-color: #f8fafc;
-    font-family: "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", sans-serif, "Merriweather", serif !important;
+    font-family: "Microsoft YaHei", "Hiragino Sans GB", "Heiti SC", sans-serif, "Merriweather", serif !important;
 }
 
 .logo {
     font-size: 1.44rem;
     font-weight: bolder;
+    color: #808685 !important;
 }
 
 .article-content {
@@ -23,7 +24,61 @@ body {
     background-color: #fff;
 }
 
-// markdown 样式
+.home {
+    a {
+        color: #139ce7;
+    }
+}
+
+.book-desc {
+    margin-top: .6rem;
+}
+
+.book-toc {
+
+}
+
+.hugo-toc {
+    margin-top: .7rem;
+    //border-bottom: 1px solid #f5f5f5;
+    .hugo-section {
+        font-size: 1.1rem;
+        font-weight: 500;
+        a {
+            color: #939da3;
+            font-size: .9rem;
+        }
+    }
+
+    .hugo-page {
+        position: relative;
+        .hugo-page-item {
+            margin: .3rem 0 .3rem 1rem;
+        }
+
+        li {
+            margin-left: .6rem;
+        }
+
+        a {
+            color: #364149;
+            font-size: .9rem;
+        }
+    }
+}
+
+.hugo-page:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 7px;
+    bottom: 7px;
+    left: 0;
+    width: 1px;
+    background: #e5eff5;
+}
+
+// markdown 样式 可删除
 .post-content {
     padding-top: 2rem;
 
@@ -279,6 +334,7 @@ body {
 #TableOfContents {
     padding-top: 1.5rem;
     word-wrap: break-word;
+    overflow-y: scroll;
     a {
         font-size: .9rem;
         color: #738a94;

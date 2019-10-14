@@ -4,10 +4,13 @@
 //@import "_common/_core/base.scss"; 都是各种覆盖配置，不要引入
 //@import "_common/_core/layout.scss";
 @import "_common/_core/markdown.scss";
+@import "_common/_core/highlight.scss";
+
+@import "_common/bluma.scss";
 
 @import "_common/_page/home.scss";
 @import "_common/_page/terms.scss";
-@import "_common/_page/post.scss";
+//@import "_common/_page/post.scss";
 @import "_common/_page/tags.scss";
 @import "_common/_page/home_post.scss";
 

@@ -1,0 +1,19 @@
+{{ $level := .level }}
+{{ range .root.Sections.ByWeight }}
+    <div class="hugo-toc" style="margin-left: {{$level}}rem">
+        <div class="hugo-section">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </div>
+        <ul class="hugo-page">
+            {{ range .Pages }}
+            <!-- section 的页面 -->
+                    <li class="hugo-page-item">
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    </li>
+            {{ end }}
+        </ul>
+    </div>
+    <!-- . 包含 Sections  -->
+    {{ partial "deep_toc" (dict "root" . "level" (add $level 1)) }}
+{{ end }}
+

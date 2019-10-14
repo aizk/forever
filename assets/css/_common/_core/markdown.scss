@@ -36,7 +36,6 @@
 
 .markdown h1 {
   margin: .67em 0;
-  font-size: 2em;
 }
 
 .markdown img {
@@ -108,41 +107,6 @@
   padding: 0;
 }
 
-.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown h1 {
-  font-weight: 600;
-  font-size: 32px;
-}
-
-.markdown h2 {
-  font-weight: 600;
-  font-size: 24px;
-}
-
-.markdown h3 {
-  font-weight: 600;
-  font-size: 20px;
-}
-
-.markdown h4 {
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.markdown h5 {
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.markdown h6 {
-  font-weight: 600;
-  font-size: 12px;
-}
-
 .markdown p {
   margin-top: 0;
   margin-bottom: 10px;
@@ -156,6 +120,14 @@
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
+  list-style: circle;
+}
+
+.markdown ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: decimal;
 }
 
 .markdown ol ol,.markdown ul ol {
@@ -257,7 +229,7 @@
 .markdown h1 {
   padding-bottom: .3em;
   border-bottom: 1px solid #bbb;
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 .markdown h2 {
@@ -378,7 +350,8 @@
   border: 0;
   background: 0 0;
   white-space: pre;
-  font-size: 100%;
+  //font-size: 100%;
+  font-size: .9rem;
   word-break: normal;
 }
 
