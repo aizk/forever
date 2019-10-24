@@ -1,15 +1,19 @@
 {{ define "content" }}
 {{ $data := .Data }}
-<div class="post-warp archive">
-    <h2 class="post-title" style="text-align:right;padding-bottom:2em">-&nbsp;{{ $data.Plural | humanize }}&nbsp;·&nbsp;{{ .Title }}&nbsp;-</h2>
-    {{ range (.Paginate .Pages).Pages }}
-    <article class="archive-item">
-        <a href="{{ .Permalink }}" class="archive-item-link hvr-underline-from-center">{{ .Title }}</a>
-        <span class="archive-item-date">
-            {{ .Date.Format "January 2, 2006" }}
-        </span>
-    </article>
-    {{ end }} 
-    {{ partial "paginator.html" . }}
+
+<div class="section">
+    <div class="container has-text-centered">
+        <div class="title">{{ $data.Plural | humanize }} · {{ .Title }}</div>
+        {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+        <h3 class="title">{{ .Key }}</h3>
+            {{ range .Pages }}
+            <article style="margin: .4rem 0">
+                <a href="{{ .RelPermalink }}" class="title is-size-6" style="color: #3273dc">{{ .Title }}</a>
+                <span class="tag ">{{ .Date.Format "2006-01-02" }}</span>
+            </article>
+            {{ end }}
+        {{ end }}
+        {{ partial "paginator.html" . }}
+    </div>
 </div>
 {{end }}

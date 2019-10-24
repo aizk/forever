@@ -5,33 +5,41 @@
 {{ $length := len $terms }}
 {{ $type := .Type }}
 <!-- Categories Page -->
-<div class="post-warp {{.Data.Plural}}">
-    <h2 class="post-title" style="text-align:right;padding-bottom:2em">-&nbsp;{{ .Data.Plural | humanize }}&nbsp;-</h2>
-{{ if and $.Site.Taxonomies.categories (eq $termName "categories") }}
+<div class="section {{.Data.Plural}}">
+    <h2 class="title has-text-centered">{{ .Data.Plural | humanize }}</h2>
 
-<div class="categories-card">
-{{ range $terms }}
+{{ if and $.Site.Taxonomies.categories (eq $termName "categories") }}
+<div class="container">
+  <div class="columns is-multiline">
+    {{ range $terms }}
     {{ $term := .Term }}
     {{ $pages := .Pages }}
     {{ with $.Site.GetPage "taxonomy" (printf "%s/%s" $type $term) }}
-         <div class="card-item">
-           <div class="categories" >
-             <a href="{{ .URL }}"><h3> <i class="iconfont icon-folder" style="padding-right: 3px"></i> {{ $term | humanize}}  </h3> </a>
-               {{ range first 5 $pages }}   
-                <article class="archive-item">
-                <a href="{{ .URL }}" class="archive-item-link">{{ .Title }}</a>
-                </article>
-              {{ end }}
-               {{ if gt (len $pages) 5 }}
-                  <span class="more-post">
-                    <a href="{{ .Permalink }}" class="more-post-link">More  >></a>
-               </span> 
-               {{ end }}
-           </div>
+    <div class="column is-half">
+      <div class="card" style="box-shadow: 0 0 0;border-radius: 5px;">
+        <div class="card-header">
+          <a href="{{ .URL }}" class="card-header-title" >{{ $term | humanize}}</a>
         </div>
+        <div class="card-content">
+          {{ range first 5 $pages }}
+          <article class="content">
+            <a href="{{ .URL }}" style="color: #3273dc">{{ .Title }}</a>
+          </article>
+          {{ end }}
+        </div>
+        {{ if gt (len $pages) 5 }}
+        <div class="card-footer">
+          <div class="card-footer-item">
+            <a href="{{ .Permalink }}" class=""> More  >></a>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
     {{ end }}
-{{ end }}
-</div> <!-- //categories-card -->
+    {{ end }}
+  </div>
+</div>
  <!-- Tag cloud Page -->
 {{ else if and $.Site.Taxonomies.tags (eq $termName "tags") }}
      <div class="tag-cloud-tags">

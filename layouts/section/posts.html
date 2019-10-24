@@ -1,17 +1,17 @@
 {{ define "content" }}
 
-<div class="post-warp archive">
-    {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
-    <h3>{{ .Key }}</h3>
-
-    {{ range .Pages }}
-    <article class="archive-item">
-        <a href="{{ .RelPermalink }}" class="archive-item-link">{{ .Title }}</a>
-        <span class="archive-item-date">
-            {{ .Date.Format "January 2, 2006" }}
-        </span>
-    </article>
-    {{ end }} {{ end }}
-    {{ partial "paginator.html" . }}
+<div class="section">
+    <div class="container has-text-centered">
+        {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+        <h3 class="title">{{ .Key }}</h3>
+        {{ range .Pages }}
+        <article style="margin: .4rem 0">
+            <a href="{{ .RelPermalink }}" class="title is-size-6" style="color: #3273dc">{{ .Title }}</a>
+            <span class="tag ">{{ .Date.Format "2006-01-02" }}</span>
+        </article>
+        {{ end }}
+        {{ end }}
+        {{ partial "paginator.html" . }}
+    </div>
 </div>
 {{end }}

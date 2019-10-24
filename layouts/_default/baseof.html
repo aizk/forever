@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
   {{ partial "head.html" . }}
-  <body class="">
-    <div class="wrapper">
-        {{ partial "header" . }}
-    	 <!-- <main class="main"> -->
-        {{ block "content" . }}{{ end }}
-        {{ partial "comments.html" . }}
-		   <!-- </main> -->
+  <body>
+      {{ partial "header" . }}
+      {{ block "content" . }}{{ end }}
+      {{ partial "comments.html" . }}
       {{ partial "footer.html" . }}
-     </div>
   </body>
 </html>

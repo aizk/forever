@@ -117,17 +117,14 @@
 }
 
 .markdown ol,.markdown ul {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: circle;
+  margin-top: 5px !important;
+  margin-bottom: 14px;
+  padding-left: 2em;
+  // list-style: circle;
 }
 
 .markdown ul {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: decimal;
+  list-style: disc;
 }
 
 .markdown ol ol,.markdown ul ol {
@@ -178,7 +175,7 @@
   text-decoration: none;
 }
 
-.markdown blockquote,.markdown dl,.markdown ol,.markdown p,.markdown pre,.markdown table,.markdown ul {
+.markdown blockquote,.markdown dl,.markdown p,.markdown pre,.markdown table {
   margin-top: 0;
   margin-bottom: 16px;
 }
@@ -253,10 +250,6 @@
 .markdown h6 {
   color: #6a737d;
   font-size: .85em;
-}
-
-.markdown ol,.markdown ul {
-  padding-left: 2em;
 }
 
 .markdown ol ol,.markdown ol ul,.markdown ul ol,.markdown ul ul {
