@@ -55,9 +55,11 @@ jQuery(function($) {
         _Blog.changeTitle()
         _Blog.toggleTheme()
         _Blog.toggleMobileMenu()
-        
+
         // 动态控制目录高度
-        var h = window.innerHeight
-        $('#TableOfContents').attr('style', 'height: ' + h + 'px;')
-    });
-});
+        var h = window.innerHeight;
+        $('#TableOfContents').attr('style', 'height: ' + h + 'px;');
+
+    })
+    
+})

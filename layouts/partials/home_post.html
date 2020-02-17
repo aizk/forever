@@ -1,30 +1,46 @@
 {{ $cdn_url := .Scratch.Get "cdn_url" }}
 
-<div class="section" style="background-color: ; margin-top: 5px">
+<div class="section">
     <div class="container">
-      {{ range (.Paginate .Pages.ByDate.Reverse).Pages }}
-      <article class="columns box" style="margin-bottom: 3rem; box-shadow: 0 0 0; position:relative;">
-        <div class="column is-11 has-text-centered">
-          <a href="{{ .Permalink }}" class="title is-size-5" style="color: #3273dc">{{ .Title }}</a>
+      <div class="columns">
+        <div class="column is-10">
+          {{ range (.Paginate .Pages.ByDate.Reverse).Pages }}
+            <article class="home-article">
+              <div class="home-article__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+              <div><div class="home-article__whipp"></div></div>
+              <div class="level">
+                <div class="level-left">
+                  <div class="level-item">
+                    <a href="{{ .Permalink }}">
+                    <button class="home-article__button">
+                      阅读更多
+                    </button>
+                  </a>
+                  </div>
+                </div>
+                <div class="level-right">
+                  <div class="level-item">
+                    <time class="home-article__cate" itemprop="datePublished">{{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}</time>
+                    {{ with .Params.categories -}}
+                      {{ range . }}
+                        {{- $name := . -}}
+                        {{- with $.Site.GetPage "taxonomy" (printf "categories/%s" $name) | default ($.Site.GetPage "taxonomy" (printf "categories/%s" ($name | urlize))) -}}
+                        <div class="home-article__cate"><a href="{{ .Permalink }}">{{ $name }}</a></div>  
+                        {{ end -}}
+                      {{ end }}
+                    {{- end }}
+                  </div>
+                </div>
+              </div>
+            </article>
+          {{ end }}
+          {{ partial "paginator.html" . }}
         </div>
         <div class="column">
-          {{ with .Params.categories -}}
-          <span class="tag is-normal">
-              {{ range . }}
-              {{- $name := . -}}
-              {{- with $.Site.GetPage "taxonomy" (printf "categories/%s" $name) | default ($.Site.GetPage "taxonomy" (printf "categories/%s" ($name | urlize))) -}}
-                <a class="has-text-black" href="{{ .Permalink }}"> {{ $name }} </a>
-              {{ end -}}
-              {{ end }}
-            </span>
-          {{- end }}
+          <div>
+            <img src="https://hhacker.com/wp-content/uploads/2020/01/laptop-593673_1280.jpg">
+            <img src="https://hhacker.com/wp-content/uploads/2019/12/code-820275_1280.jpg">
+          </div>
         </div>
-        <span class="tag is-normal" style="position: absolute;top: 1rem; left: 5px;">
-              <time itemprop="datePublished">{{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}</time>
-        </span>
-      </article>
-      {{ end }}
     </div>
-    <!--  分页  -->
-    {{ partial "paginator.html" . }}
 </div>

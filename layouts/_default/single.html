@@ -3,9 +3,10 @@
 <article class="container" itemscope itemtype="http://schema.org/Article">
     <div class="columns">
       <div class="column is-four-fifths  article-content">
-        <h2 class="has-text-grey-dark	is-size-4" style="text-align: center">{{ .Title }}</h2>
+        <h2 class="has-text-centered" style="font-weight: 600;font-size: 32px;color: #000">{{ .Title }}</h2>
         <div class="p-meta is-size-7" style="text-align: center">
-          Written by <a itemprop="name" href="{{.Site.BaseURL }}" rel="author">{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}</a> with ♥
+          Written by <a itemprop="name" href="{{.Site.BaseURL }}" rel="author">{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}</a>
+<!--          with ♥-->
           <span class="post-time">
                 on <time datetime={{.Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }} itemprop="datePublished">{{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}</time>
                 </span>

@@ -1,20 +1,78 @@
-<nav class="navbar is-spaced" style="box-shadow: 0 2px 0 #f5f5f5">
-    <div class="navbar-brand">
-      <a class="navbar-item logo" href="/">{{ .Site.Title }}</a>
-    </div>
+{{ $backSvg := resources.Get "img/icons-background.svg" }}
+{{ $headerImg := resources.Get "img/header.jpg" }}
 
-    <div class="navbar-menu">
-      <div class="navbar-start">
-<!--        <a href="/" class="navbar-item">Index</a>-->
-      </div>
+<section style="background-image: url('{{ $headerImg.RelPermalink }}')">
+  <div>
+    <nav class="navbar " style="background-color: transparent">
       <div class="navbar-end">
+<!--        <a class="navbar-item has-text-light" style="background-color: transparent" href="/pricing">Pricing</a>-->
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
-        <a class="navbar-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+        <a style="background-color: transparent; font-size: 14px" class="has-text-white navbar-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
         {{ end }}
       </div>
-    </div>
-</nav>
+    </nav>
+  </div>
+  <section class="section has-text-centered">
+    <p class="has-text-white"
+        style="font-size: 48px;font-weight: 600;letter-spacing: 1px"
+    >
+    {{ .Site.Title }}
+    </p>
+      <div style="width: 20%; height: 5px; background: #FFFFFF; display: inline-block;"></div>
+
+    <p style="color: rgba(255, 255, 255, 0.54); margin-top: 5px;" id="words">
+      Less is More.
+    </p>
+
+    <!-- <button class="button is-white is-medium"
+            style="color: #507ce8;font-weight: 600;padding: 0 3rem;"
+            onclick="randWord()"
+    >Rand</button> -->
+  </section>
+</section>
+
+<!-- <script>
+  let data = [
+    ' Across the Great Wall we can reach every corner in the world',
+    '别抱怨，生活就是一面镜子，照射着我们的内心，我们的内心是什么样，生活就是什么样。',
+    'Less is More.',
+    '教育的价值在于训练思维，而不在于传授事实。',
+    'Keep it Simple.'
+  ];
+
+  let rand = function(n, m){
+    let c = m-n+1;
+    return Math.floor(Math.random() * c + n);
+  };
+
+  let ele = document.getElementById('words');
+  let len = data.length;
+  // ele.innerText = data[rand(0, len-1)];
+  ele.innerText = data[1];
+
+  let randWord = function() {
+    ele.innerText = data[rand(0, len-1)]
+  }
+</script> -->
+
+<!--<nav class="navbar is-spaced" style="box-shadow: 0 2px 0 #f5f5f5">-->
+<!--    <div class="navbar-brand">-->
+<!--      <a class="navbar-item logo" href="/">{{ .Site.Title }}</a>-->
+<!--    </div>-->
+
+<!--    <div class="navbar-menu">-->
+<!--      <div class="navbar-start">-->
+<!--&lt;!&ndash;        <a href="/" class="navbar-item">Index</a>&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class="navbar-end">-->
+<!--        {{ $currentPage := . }}-->
+<!--        {{ range .Site.Menus.main }}-->
+<!--        <a class="navbar-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>-->
+<!--        {{ end }}-->
+<!--      </div>-->
+<!--    </div>-->
+<!--</nav>-->
 
 
 

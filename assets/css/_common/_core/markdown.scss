@@ -1,9 +1,14 @@
+.markdown {
+  font-size: 14px;
+  line-height: 2;
+  color: #000;
+}
+
 .markdown,.markdown blockquote {
   //color: #24292e;
   word-wrap: break-word;
   //font-size: 14px;
   //font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  line-height: 1.8;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -14,7 +19,6 @@
   text-decoration: none;
   //box-shadow: inset 0 -1px 0 #3eb0ef;
   transition: all .2s ease;
-  font-size: .9rem;
 
   //border-bottom: none!important;
   background-color: transparent;
@@ -34,15 +38,11 @@
   font-weight: bolder;
 }
 
-.markdown h1 {
-  margin: .67em 0;
-}
-
 .markdown img {
   border-style: none;
 }
 
-.markdown code,.markdown kbd,.markdown pre {
+.markdown kbd,.markdown pre {
   font-size: 1em;
   font-family: monospace,monospace;
 }
@@ -108,9 +108,8 @@
 }
 
 .markdown p {
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 10px;
+  // font-size: 14px;
+  margin-bottom: 16px;
 }
 
 .markdown blockquote {
@@ -138,11 +137,6 @@
 
 .markdown dd {
   margin-left: 0;
-}
-
-.markdown code {
-  font-size: 14px;
-  //font-family: SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;
 }
 
 .markdown pre {
@@ -176,9 +170,9 @@
   text-decoration: none;
 }
 
-.markdown blockquote,.markdown dl,.markdown p,.markdown pre,.markdown table {
+.markdown blockquote,.markdown dl,.markdown pre,.markdown table {
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: .5rem;
 }
 
 .markdown hr {
@@ -218,21 +212,19 @@
 }
 
 .markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6 {
-  margin-top: 24px;
-  margin-bottom: 16px;
+  margin: 1rem 0 .6rem 0;
   font-weight: 600;
-  line-height: 1.25;
+  //line-height: 1.25;
+  // border-bottom: 1px solid rgba(0, 0, 0, 0.32);
 }
 
 .markdown h1 {
-  padding-bottom: .3em;
-  border-bottom: 1px solid #ececec;
+  // padding-bottom: .3em;
+  
   font-size: 1.8em;
 }
 
 .markdown h2 {
-  padding-bottom: .3em;
-  border-bottom: 1px solid #ececec;
   font-size: 1.5em;
 }
 
@@ -249,7 +241,6 @@
 }
 
 .markdown h6 {
-  color: #6a737d;
   font-size: .85em;
 }
 
@@ -327,11 +318,18 @@
 
 .markdown code {
   color: #343f44;
-  background: #e5eff5;
-  margin: 0;
-  padding: .2em .4em;
+  // background: #e5eff5;
+  // margin: 0;
+  // padding: .2em .4em;
   border-radius: 3px;
-  //background-color: rgba(27,31,35,.05);
+  font-size: 16px;
+  padding: 0;
+  // background-color: rgba(27,31,35,.05);
+  background-color: transparent;
+}
+
+.markdown p  code {
+  color: #3273dc;
 }
 
 .markdown pre {
