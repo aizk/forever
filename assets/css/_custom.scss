@@ -69,6 +69,10 @@ body {
     }
 }
 
+.post-container {
+    padding-left: 4%;
+}
+
 .article-content {
     margin-top: 2rem;
     background-color: #fff;
@@ -137,9 +141,9 @@ body {
     background: #e5eff5;
 }
 
-.p-content {
-    padding: .5rem;
-}
+// .p-content {
+//     padding: .5rem;
+// }
 
 // markdown 样式 可删除
 .post-content {
@@ -401,7 +405,8 @@ body {
     a {
         font-size: .9rem;
         // color: #738a94;
-        color: rgba(0, 0, 0, 0.87);
+        // color: rgba(0, 0, 0, 0.87);
+        color: rgba(90, 90, 90, 0.87);
         -webkit-font-smoothing: antialiased;
         font-kerning: normal;
         overflow: hidden;
@@ -426,3 +431,4 @@ body {
 #TableOfContents::-webkit-scrollbar {
     display: none;
 }
+
